@@ -1,0 +1,11 @@
+export default function handler(req, res) {
+  const msg = (req.query.msg || "").trim();
+
+  let resposta = "👋 Olá! Bem-vindo.\n1️⃣ Atendimento\n2️⃣ Informações\n3️⃣ Sair";
+
+  if (msg === "1") resposta = "📞 Atendimento humano em breve.";
+  if (msg === "2") resposta = "ℹ️ Aqui estão as informações principais.";
+  if (msg === "3") resposta = "👋 Obrigado! Até logo.";
+
+  res.status(200).json({ reply: resposta });
+}
